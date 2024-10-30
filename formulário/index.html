@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulário de Contato</h2>
+        <form id="contactForm" action="#" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirmar Senha:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+
+            if (name === "") {
+                alert("Por favor, preencha o campo de nome.");
+                return false;
+            }
+
+            if (email === "") {
+                alert("Por favor, preencha o campo de e-mail.");
+                return false;
+            }
+
+            if (password === "" || confirmPassword === "") {
+                alert("Por favor, preencha os campos de senha.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem. Por favor, tente novamente.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
